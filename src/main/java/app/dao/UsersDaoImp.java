@@ -29,7 +29,7 @@ public class UsersDaoImp implements UsersDao {
     }
 
     @Override
-    public List<Users> read() {
+    public List<Users> getAllUsers() {
         //TypedQuery <Users> query = (TypedQuery<Users>) entityManager.createQuery("from Users ");
         return entityManager.createQuery("from Users ").getResultList();
     }
@@ -40,6 +40,6 @@ public class UsersDaoImp implements UsersDao {
     }
     @Override
     public Users showUser(int id) {
-        return read().stream().filter(users -> users.getId() == id).findAny().orElse(null);
+        return entityManager.find(Users.class, id);
     }
 }

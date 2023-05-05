@@ -31,8 +31,8 @@ public class UsersServiceImp implements UsersService {
 
     @Transactional(readOnly = true)
     @Override
-    public List<Users> read() {
-        return usersDao.read();
+    public List<Users> getAllUsers() {
+        return usersDao.getAllUsers();
     }
 
     @Transactional
